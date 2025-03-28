@@ -1,3 +1,4 @@
+import reactLogo from "./assets/react_logo.png"
 const prefixes = ["Awesomely", "Boldly", "Savagely"];
 
 function getRandomInt(max: number) {
@@ -9,7 +10,7 @@ function Header() {
 
 	return (
 		<>
-			<h1>This is a header for React Training</h1>
+			<h1>This is a header for React Training <img src={reactLogo} alt=""/></h1>
 			<p>{prefix} building a training react app for frontend learning.</p>
 		</>
 	);
