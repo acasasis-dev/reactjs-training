@@ -23,11 +23,7 @@ function DogContainer() {
 	return (
 		<>
 			<div>
-				<DogCard 
-					name={ dogs[0]["name"] } 
-					size={ dogs[0]["size"] }
-					description={ dogs[0]["description"]}
-				/>
+				<DogCard {...dogs[1]} />
 			</div>
 		</>
 	)
