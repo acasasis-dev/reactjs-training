@@ -1,5 +1,6 @@
 import DogDetails from "../../interfaces/dog/details";
 import DogCard from "./DogCard";
+import DogButton from "./DogButton";
 
 function DogContainer() {
 	const dogs: DogDetails[] = [
@@ -22,10 +23,11 @@ function DogContainer() {
 
 	return (
 		<>
-			<div>
-				<DogCard {...dogs[2]} />
-				<DogCard {...dogs[1]}>CUTE</DogCard>
-			</div>
+			<menu>
+				<DogButton>{ dogs[0].name }</DogButton>
+				<DogButton>{ dogs[1].name }</DogButton>
+				<DogButton>{ dogs[2].name }</DogButton>
+			</menu>
 		</>
 	)
 }
