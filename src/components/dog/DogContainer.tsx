@@ -5,7 +5,7 @@ import DogCard from "./DogCard";
 import DogButton from "./DogButton";
 
 function DogContainer() {
-	const [dynamicContent, setDynamicContent] = useState<ReactElement | string>("Please click a doggo.")
+	const [dynamicContent, setDynamicContent] = useState<ReactElement | null>()
 
 	function handleClick(dogDetails: DogDetails) {
 		setDynamicContent(<DogCard {...dogDetails} />)
@@ -37,7 +37,7 @@ function DogContainer() {
 				<DogButton onClick={() => handleClick(dogs[2])}>{ dogs[2].name }</DogButton>
 			</menu>
 			<div>
-				{ dynamicContent }
+				{ !dynamicContent ? "Please select a doggo": dynamicContent }
 			</div>
 		</>
 	)
