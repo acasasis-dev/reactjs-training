@@ -1,10 +1,10 @@
 import { PropsWithChildren } from "react";
 
 
-export default function DogButton({ children }: PropsWithChildren<any>) {
+export default function DogButton({ children, onClick }: PropsWithChildren<any>) {
 	return (
 		<li>
-			<button>{ children }</button>
+			<button onClick={onClick}>{ children }</button>
 		</li>
 	)
 }

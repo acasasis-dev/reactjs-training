@@ -1,8 +1,16 @@
+import { useState, ReactElement } from "react";
+
 import DogDetails from "../../interfaces/dog/details";
 import DogCard from "./DogCard";
 import DogButton from "./DogButton";
 
 function DogContainer() {
+	const [dynamicContent, setDynamicContent] = useState<ReactElement | string>("Please click a doggo.")
+
+	function handleClick(dogDetails: DogDetails) {
+		setDynamicContent(<DogCard {...dogDetails} />)
+	}
+
 	const dogs: DogDetails[] = [
 		{
 			"name": "Pitbull",
@@ -24,10 +32,13 @@ function DogContainer() {
 	return (
 		<>
 			<menu>
-				<DogButton>{ dogs[0].name }</DogButton>
-				<DogButton>{ dogs[1].name }</DogButton>
-				<DogButton>{ dogs[2].name }</DogButton>
+				<DogButton onClick={() => handleClick(dogs[0])}>{ dogs[0].name }</DogButton>
+				<DogButton onClick={() => handleClick(dogs[1])}>{ dogs[1].name }</DogButton>
+				<DogButton onClick={() => handleClick(dogs[2])}>{ dogs[2].name }</DogButton>
 			</menu>
+			<div>
+				{ dynamicContent }
+			</div>
 		</>
 	)
 }
