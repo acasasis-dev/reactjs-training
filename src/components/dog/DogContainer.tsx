@@ -32,9 +32,15 @@ function DogContainer() {
 	return (
 		<>
 			<menu>
-				<DogButton isSelected={dynamicContent?.name === dogs[0].name} onClick={() => handleClick(dogs[0])}>{ dogs[0].name }</DogButton>
-				<DogButton isSelected={dynamicContent?.name === dogs[1].name} onClick={() => handleClick(dogs[1])}>{ dogs[1].name }</DogButton>
-				<DogButton isSelected={dynamicContent?.name === dogs[2].name} onClick={() => handleClick(dogs[2])}>{ dogs[2].name }</DogButton>
+				{ dogs.map(dog => {
+					return (
+						<DogButton 
+							isSelected={dynamicContent?.name === dog.name} 
+							onClick={() => handleClick(dog)}>
+							{ dog.name }
+						</DogButton>
+					)
+				}) }
 			</menu>
 			<div>
 				{ !dynamicContent ? "Please select a doggo": <DogCard {...dynamicContent} /> }
