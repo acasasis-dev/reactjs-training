@@ -1,10 +1,10 @@
 import { PropsWithChildren } from "react";
 
 
-export default function DogButton({ children, onClick, isSelected }: PropsWithChildren<any>) {
+export default function DogButton({ children, isSelected, ...props }: PropsWithChildren<any>) {
 	return (
 		<li>
-			<button className={`btn btn-primary ${ isSelected? 'active': '' }`} onClick={onClick}>{ children }</button>
+			<button className={`btn btn-primary ${ isSelected? 'active': '' }`} {...props}>{ children }</button>
 		</li>
 	)
 }
