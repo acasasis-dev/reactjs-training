@@ -1,7 +1,7 @@
-import { ReactElement, ComponentType } from "react";
+import { ReactElement, ComponentType, JSX } from "react";
 
 
 export default interface DogTabDetails {
 	buttons: ReactElement[],
-	tabContainer: string | ComponentType
+	tabContainer: keyof JSX.IntrinsicElements | ComponentType;
 }

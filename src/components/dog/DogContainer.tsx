@@ -3,6 +3,7 @@ import { useState } from "react";
 import DogDetails from "../../interfaces/dog/details";
 import DogCard from "./DogCard";
 import DogButton from "./DogButton";
+import DogTabs from "./DogTabs";
 
 function DogContainer() {
 	const [dynamicContent, setDynamicContent] = useState<DogDetails | null>(null);
@@ -31,20 +32,20 @@ function DogContainer() {
 
 	return (
 		<>
-			<menu>
-				{ dogs.map(dog => {
-					return (
-						<DogButton 
-							isSelected={dynamicContent?.name === dog.name} 
-							onClick={() => handleClick(dog)}>
-							{ dog.name }
-						</DogButton>
-					)
-				}) }
-			</menu>
-			<div>
-				{ !dynamicContent ? "Please select a doggo": <DogCard {...dynamicContent} /> }
-			</div>
+			<DogTabs
+				tabContainer="menu"
+				buttons={
+					dogs.map(dog => {
+						return (
+							<DogButton 
+								isSelected={dynamicContent?.name === dog.name} 
+								onClick={() => handleClick(dog)}>
+								{ dog.name }
+							</DogButton>
+						)
+					})
+				}
+			>{ !dynamicContent ? "Please select a doggo": <DogCard {...dynamicContent} /> }</DogTabs>
 		</>
 	)
 }
